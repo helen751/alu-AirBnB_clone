@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
 import json
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.review import Review
-from models.place import Place
+# from models.base_model import BaseModel
+# from models.user import User
+# from models.state import State
+# from models.city import City
+# from models.amenity import Amenity
+# from models.review import Review
+# from models.place import Place
 
 
 class FileStorage():
@@ -38,6 +38,16 @@ class FileStorage():
 
     def reload(self):
         from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
+        from models.place import Place
+        class_name = {"BaseModel": BaseModel, "User": User,  "State": State,
+           "City": City, "Amenity": Amenity, "Place": Place,
+           "Review": Review}
+
         try:
             with open(self.__file_path, 'r') as file:
                 data = json.load(file)
@@ -48,5 +58,5 @@ class FileStorage():
         except FileNotFoundError:
             pass
 
-storage = FileStorage()
-storage.reload()
+# storage = FileStorage()
+# storage.reload()
