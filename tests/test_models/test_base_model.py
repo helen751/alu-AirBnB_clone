@@ -9,7 +9,7 @@ class TestBaseModel(unittest.TestCase):
     """This is a testcase class that inherits from unittest.TestCase"""
     def setUp(self):
         """setting up the object for test"""
-        self.BaseModel = BaseModel()
+        self.base_model = BaseModel()
 
     def test_id_generation(self):
         """test for id generation"""
