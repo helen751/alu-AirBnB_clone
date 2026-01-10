@@ -38,7 +38,9 @@ class FileStorage():
         from models.review import Review
         from models.place import Place
 
-        class_name = {"BaseModel": BaseModel, "User": User,  "State": State,"City": City, "Amenity": Amenity, "Place": Place,"Review": Review}
+        class_name = {"BaseModel": BaseModel, "User": User, 
+                "State": State, "City": City, "Amenity": Amenity, 
+                "Place": Place, "Review": Review}
 
         try:
             with open(self.__file_path, 'r') as file:
