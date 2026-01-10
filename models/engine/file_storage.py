@@ -1,46 +1,44 @@
 #!/usr/bin/python3
-
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 
-class FileStorage():
-    """
-    class that serializes instances to a JSON file and
-    deserializes JSON file to instances
-    """
-    __file_path = 'file.json'
+class FileStorage:
+    """Serializes instances to JSON file and deserializes back"""
+
+    __file_path = "file.json"
     __objects = {}
 
+    classes = {
+        "BaseModel": BaseModel,
+        "User": User
+    }
+
     def all(self):
-        """Returns the dictionary __objects"""
-        return self.__objects
+        """Returns the dictionary of objects"""
+        return FileStorage.__objects
 
     def new(self, obj):
-        """Sets obj in __objects with key <obj class name>.id"""
+        """Adds new object"""
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        self.__objects[key] = obj
+        FileStorage.__objects[key] = obj
 
     def save(self):
-        from models.base_model import BaseModel
-        """Serializes __objects to the JSON file"""
-        data = {}
-        for key, obj in self.__objects.items():
-            data[key] = obj.to_dict()
-        with open(self.__file_path, 'w') as file:
-            json.dump(data, file)
+        """Serializes objects to JSON"""
+        with open(FileStorage.__file_path, "w") as f:
+            json.dump(
+                {k: v.to_dict() for k, v in FileStorage.__objects.items()},
+                f
+            )
 
     def reload(self):
-        from models.base_model import BaseModel
+        """Deserializes JSON to objects"""
         try:
-            with open(self.__file_path, 'r') as file:
-                data = json.load(file)
-                for key, obj_dict in data.items():
-                    class_name, obj_id = key.split('.')
-                    obj = eval(class_name)(**obj_dict)
-                    self.__objects[key] = obj
+            with open(FileStorage.__file_path, "r") as f:
+                data = json.load(f)
+                for key, value in data.items():
+                    class_name = value["__class__"]
+                    self.__objects[key] = self.classes[class_name](**value)
         except FileNotFoundError:
             pass
-
-storage = FileStorage()
-storage.reload()
