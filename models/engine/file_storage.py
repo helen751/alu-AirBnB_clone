@@ -2,6 +2,7 @@
 
 import json
 
+
 class FileStorage():
     """
     class that serializes instances to a JSON file and
@@ -36,7 +37,8 @@ class FileStorage():
         from models.amenity import Amenity
         from models.review import Review
         from models.place import Place
-        class_name = {"BaseModel": BaseModel, "User": User,  "State": State,
+
+    class_name = {"BaseModel": BaseModel, "User": User,  "State": State,
            "City": City, "Amenity": Amenity, "Place": Place,
            "Review": Review}
 
