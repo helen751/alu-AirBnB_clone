@@ -50,3 +50,7 @@ class FileStorage():
 
 storage = FileStorage()
 storage.reload()
+
+dict_classes = {"BaseModel": BaseModel, "User": User,  "State": State,
+           "City": City, "Amenity": Amenity, "Place": Place,
+           "Review": Review}
