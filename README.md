@@ -1,24 +1,23 @@
-# AirBnB Clone – Command Line Interpreter
+# AirBnB Clone Project
 
-## Project Description
-The **AirBnB Clone** project is a simplified version of the AirBnB platform.  
-This first stage focuses on building a **command-line interpreter** that manages the core objects of the application.
+## Description of the Project
+This project is a simplified clone of the AirBnB web application.  
+The goal of the project is to understand how a full web application is built,
+starting from a command-line interpreter and progressively adding components
+such as storage, web static content, databases, APIs, and a full web framework.
 
-The command interpreter allows users to:
-- Create new objects (User, Place, City, etc.)
-- Retrieve objects from storage
-- Update object attributes
-- Delete objects
-- Persist data using file storage (JSON)
-
-This project is part of a larger system that will later include a web application, RESTful API, and database storage.
+This first stage focuses on building a command interpreter that manages
+AirBnB objects.
 
 ---
 
-## Command Interpreter Description
+## Description of the Command Interpreter
+The command interpreter is a command-line interface (CLI) used to manage
+the objects of the AirBnB project. It allows users to create, update, destroy,
+and retrieve objects such as users, places, cities, and amenities.
 
-### How to Start the Interpreter
-To start the command interpreter, run:
+### How to Start the Command Interpreter
+The command interpreter is started by running the `console.py` file:
 
 ```bash
-./console.py
+$ ./console.py
