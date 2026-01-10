@@ -30,7 +30,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.save()
 
         # Clear the current objects dictionary
-        self.storage.__objects = {}
+        self.storage._FileStorage__objects = {}
 
         # Reload the objects from the saved file
         self.storage.reload()
