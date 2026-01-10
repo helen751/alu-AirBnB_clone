@@ -1,7 +1,7 @@
 #!/user/bin/python3
 """Testing file for the review class"""
 import unittest
-from ...models.review import Review
+from models.review import Review
 
 
 class TestUserModel(unittest.TestCase):

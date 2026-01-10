@@ -1,7 +1,7 @@
 #!/user/bin/python3
 """Testing file for the City class"""
 import unittest
-from ...models.city import City
+from models.city import City
 
 
 class TestUserModel(unittest.TestCase):

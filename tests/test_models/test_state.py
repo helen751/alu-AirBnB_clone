@@ -1,7 +1,7 @@
 #!/user/bin/python3
 """Testing file for the State class"""
 import unittest
-from ...models.state import State
+from models.state import State
 
 
 class TestBaseModel(unittest.TestCase):
